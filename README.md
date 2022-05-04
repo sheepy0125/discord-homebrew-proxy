@@ -8,8 +8,8 @@ This is just a normal Rust app. Run `cargo run` and you should be good!
 
 In order to run this, two environmental variables must be set.
 
-1. A Discord bot token to listen for messages (the message content intent must be enabled, should only be in one bridge channel)
-2. A Discord Webhook URL to send messages on
+1. `DISCORD_TOKEN`, A Discord bot token to listen for messages (the message content intent must be enabled, should only be in one bridge channel)
+2. `WEBHOOK_URL`, A Discord Webhook URL to send messages on
 
 # Why is this needed?
 
