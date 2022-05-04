@@ -1,0 +1,1 @@
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QHELLO3DS HELLO3DS The 3DS will finish the handshake.\\E$"}

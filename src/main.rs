@@ -34,7 +34,7 @@ struct Handler;
 impl EventHandler for Handler {
     async fn message(&self, _: Context, message: Message) {
         let formatted_message = format!(
-            "{}:{} -> {}",
+            "{}#{} -> {}",
             message.author.name, message.author.discriminator, message.content
         );
         unsafe {
