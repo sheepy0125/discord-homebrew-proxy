@@ -19,7 +19,7 @@ use reqwest;
 /* Constants */
 const BUFFER_SIZE: usize = 1024 as usize;
 const AVATAR_URL: &str =
-    "https://cdn.discordapp.com/avatars/971180862735536149/c899db6ad94902b31a606c4c3100e771.webp";
+    "https://cdn.discordapp.com/avatars/971197852493692928/544fb209e3b265a59befde0f5a884d25.webp";
 
 /* Globals */
 /// The current message to send to the 3DS
@@ -38,7 +38,11 @@ impl EventHandler for Handler {
             message.author.name, message.author.discriminator, message.content
         );
         unsafe {
-            global_message.push_str(&formatted_message.to_string());
+            if global_message.is_empty() {
+                global_message = formatted_message;
+            } else {
+                global_message = format!("{}\n{}", global_message, formatted_message);
+            }
         }
         unsafe {
             println!("Message received: {}", global_message);
@@ -69,7 +73,7 @@ unsafe fn handle_data(data: &String) -> Vec<String> {
         let client = reqwest::blocking::Client::new();
         client
             .post(&webhook_url)
-            .json(&json!({ "username": "3DS", "content": message, "avatar_url": AVATAR_URL }))
+            .json(&json!({ "username": "3DSXL", "content": message, "avatar_url": AVATAR_URL }))
             .send()
             .unwrap();
 
